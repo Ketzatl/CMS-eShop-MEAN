@@ -1,0 +1,41 @@
+<div class="collapse bg-dark" id="navbarHeader">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-md-7 py-4">
+        <h4 class="text-info">About</h4>
+        <p class="text-muted">Est laboriosam voluptatem quia et odio. Vel esse omnis ex ab animi eius similique quod.
+          Eos cumque asperiores soluta odit saepe facilis odit. Rerum quaerat rerum doloribus.
+          Mollitia molestiae nemo enim natus consequatur.
+          Facere in at unde aut. Aut laboriosam sed est numquam sed adipisci.</p>
+      </div>
+      <div class="col-sm-4 offset-md-1 py-4">
+        <h4 class="text-info">Contact</h4>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white">Suivez-nous sur Twitter</a></li>
+          <li><a href="#" class="text-white">Rejoignez notre page Facebook</a></li>
+          <li><a href="#" class="text-white">Envie de nous envoyer un mail, c'est ici !</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="navbar navbar-dark bg-dark shadow-sm">
+  <div class="container">
+    <a href="#" class="navbar-brand d-flex align-items-center">
+      <strong class="text-info">Dev 1 day, Dev all days</strong>
+    </a>
+    <a [routerLink]="['admin/home']" class="navbar-brand d-flex align-items-center">
+      Admin Dashboard
+    </a>
+    <a [routerLink]="['admin/new-product']" class="navbar-brand d-flex align-items-center">
+      New Product
+    </a>
+    <a [routerLink]="['products']" class="navbar-brand d-flex align-items-center">
+      Nos Produits
+    </a>
+    <img width="122vw" src="https://sonarcloud.io/images/project_badges/sonarcloud-orange.svg" alt="SonarCloud_Badge">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</div>

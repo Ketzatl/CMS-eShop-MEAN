@@ -1,0 +1,23 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class products {
+   _id: objectid
+   creationDate: string
+   name: string
+   pictures: string
+   __v: int32
+   description: string
+   price: int32
+}
+class users {
+   _id: objectid
+   __v: int32
+   email: string
+   password: string
+}
+
+@enduml

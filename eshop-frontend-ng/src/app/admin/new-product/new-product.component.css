@@ -1,0 +1,6 @@
+@import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+.title {
+  margin-top: 8vh;
+  font-weight: bold;
+}
