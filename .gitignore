@@ -9,12 +9,15 @@
 
 # dependencies
 /node_modules
+/package.json
+/package-lock.json
 
 # profiling files
 chrome-profiler-events*.json
 
 # IDEs and editors
 .idea
+.idea/*
 /idea
 .project
 .classpath
