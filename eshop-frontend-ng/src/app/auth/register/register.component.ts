@@ -10,7 +10,9 @@ import {AuthService} from "../auth.service";
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
 
+
   constructor(private fb: FormBuilder, private authService: AuthService) { }
+
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -28,5 +30,6 @@ export class RegisterComponent implements OnInit {
   submit() {
     console.log(this.registerForm.value);
     this.authService.register(this.registerForm.value);
+
   }
 }
