@@ -15,7 +15,7 @@ export class ProductsService {
         return createdProduct.save();
     }
 
-    /* Permet de récupérer tous les produits,
+    /* Permet de récupérer tous les produits en DB,
     du plus récent au plus ancien (date de création) */
     async findAll(): Promise<Product[]> {
         return (this.productModel

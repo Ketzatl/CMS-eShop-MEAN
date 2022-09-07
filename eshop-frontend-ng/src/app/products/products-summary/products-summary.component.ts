@@ -12,6 +12,8 @@ export class ProductsSummaryComponent implements OnInit {
   @Input() product!: Product;
   @Output() deleteSuccess = new EventEmitter<boolean>();
 
+  @Output() updateSuccess = new EventEmitter<boolean>();
+
   isWaitingForServerResponse = false;
   error = null;
   isInEditMode = false;
