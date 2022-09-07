@@ -1,5 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import {Injectable, NotFoundException} from '@nestjs/common';
 import {UsersService} from "../users/users.service";
+import {ReadUserDto} from "../users/dto/read-user.dto";
 
 @Injectable()
 export class AuthService {
@@ -15,4 +16,11 @@ export class AuthService {
         return null;
     }
 
+    login(readUserDto: ReadUserDto) {
+        const foundUser = this.userService.findOneUser(readUserDto.email);
+        if (!foundUser) {
+            return new NotFoundException();
+        }
+        return foundUser;
+    }
 }
