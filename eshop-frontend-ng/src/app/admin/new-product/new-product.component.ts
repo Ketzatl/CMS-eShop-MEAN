@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ProductService} from "../product.service";
+import {catchError, EMPTY, Observable} from "rxjs";
 
 @Component({
   selector: 'app-new-product',
@@ -8,7 +9,6 @@ import {ProductService} from "../product.service";
   styleUrls: ['./new-product.component.css']
 })
 export class NewProductComponent implements OnInit {
-  response$ = null;
 
   constructor(private fb: FormBuilder, private productService: ProductService) { }
 
@@ -21,21 +21,37 @@ export class NewProductComponent implements OnInit {
       Validators.minLength(4)]],
     price: ['', [
       Validators.required,
-      Validators.max(5),
-      Validators.pattern('\\d{1,3}(?:[.,]\\d{3})*(?:[.,]\\d{2})')]],
+      Validators.minLength(1),
+      Validators.maxLength(5),
+      // Validators.pattern('\\d{1,3}(?:[.,]\\d{3})*(?:[.,]\\d{2})')
+    ]],
     pictures: [''],
     creationDate: new Date().toISOString()
-  })
+  });
+
+  response$? : Observable<any>;
+  error = null;
 
   ngOnInit() {
   }
 
-  async submit() {
-    // console.log('product / submit', this.productForm.value);
+  /*async submit() {
+    console.log('product / submit', this.productForm.value);
     // @ts-ignore
     this.response$ = this.productService.createProduct(this.productForm.value).subscribe(
         (res: any) => console.log(res)
     );
+  }*/
+
+  async submit() {
+    this.error = null;
+    this.response$ = await this.productService.createProduct(this.productForm.value)
+      .pipe(
+        catchError(error => {
+          this.error = error;
+          return EMPTY;
+        })
+      );
   }
 
   get name() {

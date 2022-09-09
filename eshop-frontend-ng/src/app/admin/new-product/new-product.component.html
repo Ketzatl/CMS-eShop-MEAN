@@ -12,8 +12,12 @@
            class="form-control"
            id="productName"
            required>
-    <!--<div *ngIf="name != null && name.invalid" class="alert alert-danger mt-2">
-    </div>-->
+
+    <div
+      *ngIf="name!.invalid && (name!.dirty || name!.touched)"
+      class="alert alert-danger">
+      Product name is required.
+    </div>
   </div>
 
   <div class="mb-3 form-group">
@@ -23,9 +27,20 @@
               id="productDescription"
               required>
     </textarea>
-    <!--<div *ngIf="description?.errors? && (description?.errors['required'] !== null)" class="alert alert-danger mt-2">
 
-    </div>-->
+    <div
+      *ngIf="description!.errors && (description!.errors['required'] !== null) && (description!.dirty || description!.touched)"
+      class="alert alert-danger">
+      Product description is required.
+    </div>
+
+    <div
+      *ngIf="description!.errors && description!.errors['minlength'] && (description!.dirty ||
+      description!.touched)"
+      class="alert alert-danger pt-2">
+      Product description is too short (min 4 caracters).
+    </div>
+
   </div>
 
   <div class="mb-3 form-group">
@@ -36,9 +51,11 @@
            id="productPrice"
            aria-describedby="emailHelp"
            required>
-    <!--<div *ngIf="price != null && price.invalid" class="alert alert-danger mt-2">
-
-    </div>-->
+    <div *ngIf="price!.errors && price!.errors['maxlength'] && (price!.dirty ||
+      price!.touched)"
+         class="alert alert-danger">
+      Product price is required...
+    </div>
   </div>
 
   <div class="mb-3 form-group">
