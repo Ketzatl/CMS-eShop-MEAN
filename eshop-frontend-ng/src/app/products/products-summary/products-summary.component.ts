@@ -2,6 +2,7 @@ import {Component, Input, Output, EventEmitter ,OnInit} from '@angular/core';
 import {Product} from "../../models/product.model";
 import {ProductService} from "../../admin/product.service";
 import {catchError, throwError} from "rxjs";
+import {AuthService} from "../../auth/auth.service";
 
 @Component({
   selector: 'app-products-summary',
@@ -19,7 +20,7 @@ export class ProductsSummaryComponent implements OnInit {
   isInEditMode = false;
 
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, public authService: AuthService) { }
 
   ngOnInit(): void {}
 

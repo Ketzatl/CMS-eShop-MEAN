@@ -7,6 +7,7 @@ import {HttpClient} from "@angular/common/http";
 export class AuthService {
   private baseUrl = 'http://localhost:3000/users';
   tokenKey: string = 'cms-nestjs';
+  private token = '';
 
   constructor(private http: HttpClient  ) { }
 
@@ -25,7 +26,21 @@ export class AuthService {
       .post<any>(fullUrl, credentials)
       .subscribe(token => {
         console.log('token', token);
+        this.token = token.access_token;
         localStorage.setItem(this.tokenKey, token.access_token);
       })
+  }
+
+  decodePayloadToken(token: any) {
+    const payload = JSON.parse(atob(this.token.split('.')[1]));
+    console.log('payload', payload);
+    return payload;
+  }
+  get isAdmin() {
+    if (!this.token) {
+      return false;
+    }
+    const payload = this.decodePayloadToken(this.token);
+    return payload.role === 'admin';
   }
 }

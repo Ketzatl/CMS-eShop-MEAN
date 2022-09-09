@@ -16,9 +16,12 @@
     <div class="d-flex justify-content-between align-items-center">
       <div class="btn-group">
         <button class="btn btn-success text-light btn-outline-success btn-sm btn-outline-secondary" type="button">View</button>
-        <button (click)="isInEditMode = !isInEditMode" class="btn btn-warning text-light btn-sm btn-outline-secondary" type="button">Edit</button>
-        <button (click)="delete(product)" class="btn btn-danger btn-outline-secondary text-light btn-sm btn-outline-secondary"
-                type="button">Delete
+        <button (click)="isInEditMode = !isInEditMode"
+                class="btn btn-warning text-light btn-sm btn-outline-secondary"
+                type="button" *ngIf="authService.isAdmin">Edit</button>
+        <button (click)="delete(product)"
+                class="btn btn-danger btn-outline-secondary text-light btn-sm btn-outline-secondary"
+                type="button" *ngIf="authService.isAdmin">Delete
         </button>
       </div>
     </div>
