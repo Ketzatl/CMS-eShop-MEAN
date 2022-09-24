@@ -18,9 +18,12 @@ async function bootstrap() {
     // const document = SwaggerModule.createDocument(app, config);
     // SwaggerModule.setup('api', app, document);
 
-    console.log("\x1b[33m%s\x1b[0m", "\n\t >>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<"); // yellow text
-    console.log(`\t >> App listening on port ${port} <<`);
-    console.log("\x1b[33m%s\x1b[0m", "\t >>>>>>>>>>>>>>>><<<<<<<<<<<<<<<< \n"); // yellow text
+    console.log("\x1b[33m%s\x1b[0m", "\n\t >>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<"); // yellow text
+    console.log(`\t >>          Server listening on port ${port}           <<`);
+    console.log(`\t >> Access API here   :  http://localhost:3000/products`);
+    console.log(`\t >> Visit NG App here :  http://localhost:4200       <<`);
+    console.log(`\t >> API Documentation :  http://localhost:3000/api   <<`);
+    console.log("\x1b[33m%s\x1b[0m", "\t >>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<< \n"); // yellow text
 }
 
 bootstrap();
