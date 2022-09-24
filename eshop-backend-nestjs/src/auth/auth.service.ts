@@ -21,6 +21,9 @@ export class AuthService {
     }
 
     async login(readUserDto: ReadUserDto) {
+        // ####  Change password here, to change ADMIN  ####
+        // ####  >>  Add new(s) email(s) in "adminArray ####
+        let adminArray: string[] = ['tukho@sadhill.com', 'admin@test.com'];
         const foundUser = await this.userService.findOneUser(readUserDto.email);
         if (!foundUser) {
             return new NotFoundException();
@@ -33,7 +36,8 @@ export class AuthService {
             sub: foundUser._id,
             role: '',
         };
-        if (foundUser.email === 'tukho@sadhill.com') {
+        // if (foundUser.email === 'tukho@sadhill.com') {
+        if (adminArray.includes(foundUser.email)) {
             payload.role = 'admin';
         } else {
             payload.role = 'user';
