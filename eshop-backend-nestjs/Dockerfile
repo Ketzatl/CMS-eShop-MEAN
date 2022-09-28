@@ -8,7 +8,7 @@ RUN npm install glob rimraf
 
 RUN npm install --only=development
 
-COPY . .
+COPY src .
 
 RUN npm run build
 
@@ -23,7 +23,7 @@ COPY package*.json ./
 
 RUN npm install --only=production
 
-COPY . .
+COPY src .
 
 COPY --from=development /usr/src/app/dist ./dist
 

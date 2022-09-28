@@ -5,9 +5,9 @@ services:
     container_name: nestjs_api_dev_eshop
     image: nestjs-api-dev:1.0.0
     build:
-      context: .
+      context: eshop-backend-nestjs
       target: development
-      dockerfile: ./Dockerfile
+      dockerfile: .eshop-backend-nestjs/Dockerfile
     command: npm run start:debug
     ports:
       - 3000:3000
